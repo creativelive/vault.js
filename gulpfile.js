@@ -1,32 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
-var clean = require('gulp-clean');
 var eslint = require('gulp-eslint');
-var rename = require('gulp-rename');
-var uglify = require('gulp-uglifyjs');
-var browserify = require('gulp-browserify');
-
-gulp.task('clean', function() {
-  gulp.src('./dist/*')
-    .pipe(clean({
-      read: false
-    }));
-});
-
-gulp.task('js', function() {
-  gulp.src('./browser.js')
-    .pipe(browserify({
-      read: false,
-      standalone: 'Vault',
-      debug: process.env.NODE_ENV === 'dev'
-    }))
-    .pipe(uglify())
-    .pipe(rename('vault.min.js'))
-    .pipe(gulp.dest('./dist'));
-});
-
-gulp.task('build', ['clean', 'js']);
 
 gulp.task('eslint', function() {
   return gulp.src([
@@ -41,12 +16,6 @@ gulp.task('eslint', function() {
       }
     }
   );
-});
-
-gulp.task('watch', function() {
-  gulp.watch([
-    './lib/*.js'
-  ], ['js']);
 });
 
 process.on('uncaughtException', function(err) {
