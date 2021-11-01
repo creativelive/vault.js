@@ -1,6 +1,6 @@
 {
   "name": "@creativelive/vault.js",
-  "version": "1.1.1-master.0",
+  "version": "1.1.1-master.1",
   "description": "Key-Value Storage of true data types for the browser and node",
   "main": "index.js",
   "author": "Jimmy Byrum (https://github.com/jimmybyrum)",
